@@ -1,0 +1,14 @@
+img {
+    width: 200px;
+    height: 60px;
+}
+
+li {
+    padding: 10px;
+    margin-left: 7px;
+}
+
+li:hover, .active {
+    border-bottom: 3px solid rgba(255, 174, 0, 0.829);
+    margin-left: 7px;
+}
