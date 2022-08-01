@@ -1,6 +1,7 @@
 import React from 'react';
 import './navbar.css';
 import logo from './hardygames-logo.png';
+import CartWidget from '../../components/CartWidget/cartwidget';
 
 const Navbar = () => {
     return (
@@ -25,7 +26,7 @@ const Navbar = () => {
                     </form>
 
                     <div className="text-end">
-                        <button id="btnVerCarrito" type="button" className="btn btn-outline-light mx-3"><i className="bi bi-cart" style={{fontSize: 18}}></i><span className="badge text-bg-success ms-3">4</span></button>
+                        <CartWidget/>
                         <button id="btnConectarse" type="button" className="btn btn-warning me-2">Conectarse</button>
                         <button id="btnRegistrarse" type="button" className="btn btn-outline-danger">Registrarse</button>
                     </div>
