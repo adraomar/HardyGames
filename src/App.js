@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <Navbar/>
       <header className="App-header">
-        <ItemListContainer titulo="HardyWeb"></ItemListContainer>
+        <ItemListContainer titulo="Gaming Partners"></ItemListContainer>
       </header>
     </div>
   );
