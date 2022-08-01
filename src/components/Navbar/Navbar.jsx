@@ -25,9 +25,9 @@ const Navbar = () => {
                     </form>
 
                     <div className="text-end">
-                        <button type="button" className="btn btn-outline-light mx-3"><i className="bi bi-cart" style={{fontSize: 18}}></i><span className="badge text-bg-success ms-3">4</span></button>
-                        <button type="button" className="btn btn-warning me-2">Conectarse</button>
-                        <button type="button" className="btn btn-outline-danger">Registrarse</button>
+                        <button id="btnVerCarrito" type="button" className="btn btn-outline-light mx-3"><i className="bi bi-cart" style={{fontSize: 18}}></i><span className="badge text-bg-success ms-3">4</span></button>
+                        <button id="btnConectarse" type="button" className="btn btn-warning me-2">Conectarse</button>
+                        <button id="btnRegistrarse" type="button" className="btn btn-outline-danger">Registrarse</button>
                     </div>
                 </div>
             </div>
