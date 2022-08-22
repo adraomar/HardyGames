@@ -11,7 +11,7 @@ function App() {
       <main className="bg-dark">
       <div className="container">
         <div className="text-dark">
-          <ItemListContainer titulo="Gaming Partners"></ItemListContainer>
+          <ItemListContainer></ItemListContainer>
         </div>
       </div>
       </main>

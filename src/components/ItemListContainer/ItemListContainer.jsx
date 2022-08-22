@@ -1,16 +1,32 @@
 import React from 'react';
-import ItemCount from '../ItemCount/ItemCount';
+import { useState, useEffect } from 'react';
+import ItemList from '../ItemList/ItemList';
 
-const ItemListContainer = (props) => {
-    const onAdd = (contador) => {
-        console.log("Soy onAdd y el valor del contador es: ", contador);
-    }
+const ItemListContainer = () => {
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        let productos = [{ id: 1, nombre: "Producto #1", precio: 100 }, { id: 2, nombre: "Producto #2", precio: 100 }, { id: 3, nombre: "Producto #3", precio: 100 },
+        { id: 4, nombre: "Producto #4", precio: 100 }, { id: 5, nombre: "Producto #5", precio: 100 }, { id: 6, nombre: "Producto #6", precio: 100 },
+        { id: 7, nombre: "Producto #7", precio: 100 }, { id: 8, nombre: "Producto #8", precio: 100 }, { id: 9, nombre: "Producto #9", precio: 100 }];
+
+        new Promise((resolve) => {
+
+            setTimeout(() => {
+                resolve(productos);
+            }, 2000);
+        }).then((data) => {
+            setItems(data);
+        })
+    }, [])
 
     return (
         <>
-        <h1 className="h1 text-light"> Bienvenidos al ECommerce <strong>{props.titulo}</strong> tienda Online de Videojuegos, accesorios y merchandising.</h1>
-        <ItemCount stock={5} initial={0} onAdd={onAdd}></ItemCount>
-        </>    
+            <div className="row row-cols-1 row-cols-md-3 g-4 text-center align-center mt-3">
+                <ItemList items={items}></ItemList>
+            </div>
+
+        </>
     );
 }
 
