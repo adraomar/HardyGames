@@ -1,29 +1,33 @@
 import React from "react";
 import ItemCount from "../ItemCount/ItemCount";
+import {Link} from "react-router-dom";
 
-const Item = (item) => {
+const Item = ({ item }) => {
     const onAdd = (contador) => {
-        alert("Se ha agregado " + contador + " " + item.nombre + " al carrito");
+        alert("Se agregaron '" + contador + "' copia(s) del juego '" + item.name + "'.");
     }
 
     return (
         <>
             <div className="col">
-                <div className="card text-center">
-                    <div className="card-header">
-                        <h3 classNameclassName="h3"># {item.id} - {item.nombre}</h3>
-                    </div>
-                    <div className="card-body">
-                        <p className="card-text mb-3">Nombre: {item.nombre}</p>
-                        <p className="card-text mb-3">Precio: {item.precio}</p>
+                <div className="card h-100">
+                    <Link to={`/item/${item.id}`}>
+                        <img src={item.background_image} className="card-img-top h-100" alt="..." />
+                    </Link>
+                    <div className="card-body text-center">
+                        <div className="content_top">
+                            <div className="heading">
+                                <h3 className="card-title m-1">{item.name}</h3>
+                            </div>
+                        </div>
+                        <p className="card-text m-3">$ {item.suggestions_count}</p>
                         <ItemCount stock={5} initial={0} onAdd={onAdd}></ItemCount>
                     </div>
-                    <div className="card-footer text-muted">
-                        Producto nuevo!
+                    <div className="card-footer">
+                        <small className="text-muted">Actualizado {item.updated}(s)</small>
                     </div>
                 </div>
             </div>
-
         </>
     )
 }

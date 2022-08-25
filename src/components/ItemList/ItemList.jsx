@@ -4,17 +4,20 @@ import Item from "../Item/Item";
 const ItemList = ({ items }) => {
     return (
         <>
-            {
-                items.map((elemento, index) => (
-                    <Item key={index} id={elemento.id} nombre={elemento.nombre} precio={elemento.precio}></Item>
-                ))
-            }
+            <div className="row row-cols-1 row-cols-md-6 g-3 m-3">
+                {
+                    items.map((elemento, index) =>
+                        <Item key={index} item={elemento}></Item>
+                    )
+                }
+                {
+                    items.length < 1 &&
+                    <div className="spinner-border text-success text-center" role="status">
+                        <span className="visually-hidden">Cargando...</span>
+                    </div>
 
-            {items.length < 1 &&
-                <h1 className="text-light mt-1 text-uppercase">
-                    No hay resultado...
-                </h1>
-            }
+                }
+            </div>
         </>
     );
 }

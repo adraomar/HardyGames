@@ -2,13 +2,33 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import ItemList from '../ItemList/ItemList';
 
-const ItemListContainer = () => {
+const ItemListContainer = ({ listItems }) => {
     const [items, setItems] = useState([]);
 
+    let api_url = "";
+    let api_key = "15c0ed5bc35d476baecf48a6c8529477";
+
+    switch (listItems) {
+        case 0:
+            api_url = "https://api.rawg.io/api/games?key=" + api_key;
+            break;
+        case 1:
+            api_url = "https://api.rawg.io/api/games?key=" + api_key + "&page_size=6";
+            break;
+        default:
+            api_url = "https://api.rawg.io/api/games?key=" + api_key;
+            break;
+    }
+
     useEffect(() => {
-        let productos = [{ id: 1, nombre: "Producto #1", precio: 100 }, { id: 2, nombre: "Producto #2", precio: 100 }, { id: 3, nombre: "Producto #3", precio: 100 },
-        { id: 4, nombre: "Producto #4", precio: 100 }, { id: 5, nombre: "Producto #5", precio: 100 }, { id: 6, nombre: "Producto #6", precio: 100 },
-        { id: 7, nombre: "Producto #7", precio: 100 }, { id: 8, nombre: "Producto #8", precio: 100 }, { id: 9, nombre: "Producto #9", precio: 100 }];
+        let productos;
+
+        fetch(api_url)
+            .then(dataJson => dataJson.json())
+            .then(data => {
+                productos = data.results;
+            })
+
 
         new Promise((resolve) => {
 
@@ -18,14 +38,11 @@ const ItemListContainer = () => {
         }).then((data) => {
             setItems(data);
         })
-    }, [])
+    }, [api_url])
 
     return (
         <>
-            <div className="row row-cols-1 row-cols-md-3 g-4 text-center align-center mt-3">
-                <ItemList items={items}></ItemList>
-            </div>
-
+            <ItemList items={items}></ItemList>
         </>
     );
 }

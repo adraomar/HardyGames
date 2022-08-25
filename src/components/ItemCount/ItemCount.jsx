@@ -22,14 +22,23 @@ const ItemCount = (props) => {
 
     return (
         <>
-            <button onClick={disminuirContador} disabled={contador === props.initial} className="btn btn-warning"> - </button>
-            <input type="number" className="text-center" value={contador} readOnly></input>
-            <button onClick={aumentarContador} disabled={contador === props.stock} className="btn btn-warning"> + </button>
-            <div>
-                <button disabled={contador === props.initial} onClick={() => props.onAdd(contador)} className="btn btn-primary">
-                    Agregar al carrito
-                </button>
+            <div className="input-group">
+                <span className="input-group-btn">
+                    <button type="button" onClick={disminuirContador} disabled={contador === props.initial} className="btn btn-warning btn-number" data-type="minus" data-field="quant[2]">
+                        <span className="glyphicon glyphicon-minus">-</span>
+                    </button>
+                </span>
+                <input type="number" name="quant[2]" className="form-control input-number text-center" value={contador} readOnly />
+                <span className="input-group-btn">
+                    <button type="button" onClick={aumentarContador} disabled={contador === props.stock} className="btn btn-warning btn-number" data-type="plus" data-field="quant[2]">
+                        <span className="glyphicon glyphicon-plus">+</span>
+                    </button>
+                </span>
             </div>
+            <button disabled={contador === props.initial} onClick={() => props.onAdd(contador)} className="btn btn-outline-success mt-3">
+                <i className="bi bi-cart-plus-fill"></i> Agregar al carrito
+            </button>
+
         </>
     );
 }
