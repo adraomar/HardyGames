@@ -15,16 +15,14 @@ const Navbar = () => {
                     </Link>
 
                     <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                        <li><Link to={`/`} className="nav-link px-2 link-secondary">Home</Link></li>
-                        <li><Link to={`/`} className="nav-link px-2 link-dark">Features</Link></li>
-                        <li><Link to={`/`} className="nav-link px-2 link-dark">Pricing</Link></li>
-                        <li><Link to={`/`} className="nav-link px-2 link-dark">FAQs</Link></li>
-                        <li><Link to={`/`} className="nav-link px-2 link-dark">About</Link></li>
+                        <li><Link to={`/`} className="nav-link px-2 link-secondary">Inicio</Link></li>
+                        <li><Link to={`/`} className="nav-link px-2 link-dark">Productos</Link></li>
+                        <li><Link to={`/`} className="nav-link px-2 link-dark">Sobre Nosotros</Link></li>
                     </ul>
 
                     <div className="col-md-3 text-end">
-                        <button type="button" className="btn btn-outline-primary me-2">Login</button>
-                        <button type="button" className="btn btn-primary">Sign-up</button>
+                        <button type="button" className="btn btn-outline-primary me-2">Conectarse</button>
+                        <button type="button" className="btn btn-primary">Registrarse</button>
                     </div>
                 </header>
             </div>
