@@ -3,7 +3,7 @@ import ItemListContainer from "./ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./ItemDetailContainer/ItemDetailContainer";
 import Slider from "./Slider/Slider";
 import CartWidget from "./CartWidget/cartwidget";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 
 const Main = () => {
     return (
