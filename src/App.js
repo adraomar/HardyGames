@@ -10,8 +10,8 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/item/:id" element={<ItemDetailContainer />} />
+        <Route path={`/`} element={<Main />}/>
+        <Route path={`/item/:id`} element={<ItemDetailContainer/>} />
       </Routes>
       <Footer />
     </BrowserRouter>

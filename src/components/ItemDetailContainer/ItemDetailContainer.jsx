@@ -18,8 +18,8 @@ const ItemDetailContainer = () => {
 
         new Promise((resolve) => {
             setTimeout(() => {
-                resolve(productos.find((elemento) => elemento.id === Number(id)))
-            }, 2000)
+                resolve(productos.find((elemento) => Number(elemento.id) === Number(id)))
+            }, 5000)
         }).then((data) => {
             setItem(data);
         })
@@ -27,9 +27,7 @@ const ItemDetailContainer = () => {
     }, [id])
 
     return (
-        <>
-            <ItemDetail item={item} />
-        </>
+        <ItemDetail item={item} />
     );
 }
 

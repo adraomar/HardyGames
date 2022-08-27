@@ -17,7 +17,7 @@ const ItemListContainer = () => {
         new Promise((resolve) => {
             setTimeout(() => {
                 resolve(productos);
-            }, 2000);
+            }, 5000);
         }).then((data) => {
             setItems(data);
         })
