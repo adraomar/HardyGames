@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 const CartWidget = () => {
     return (
         <>
-            <div className="cart">
-                <div className="btn-group">
-                    <div className="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-                    <i className="bi bi-cart4"></i> Carrito (0)
-                    </div>
-                    <ul className="dropdown-menu">
-                        <li><Link to={`/`} className="dropdown-item">No tienes ningun producto</Link></li>
+            <div className="header_bottom_left my-3">
+                <div className="categories">
+                    <ul className="list-group">
+                        <h3><i className="bi bi-cart4"></i> Carrito (3)</h3>
+                        <li><Link to={`/`}>Item 1</Link></li>
+                        <li><Link to={`/`}>Item 1</Link></li>
+                        <li><Link to={`/`}>Item 1</Link></li>
                     </ul>
                 </div>
             </div>

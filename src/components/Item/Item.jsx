@@ -15,10 +15,10 @@ const Item = ({ item }) => {
                     <Link to={`/item/${item.id}`}>
                         <img src={item.background_image} className="card-img-top" alt="..." />
                     </Link>
-                    <div className="card-body">
-                        <h5 className="card-title">{item.name}</h5>
-                        <p className="card-text">Precio: $ {item.suggestions_count}</p>
-                        <ItemCount stock={5} initial={0} onAdd={onAdd}></ItemCount>
+                    <h5 className="card-title p-3 mb-3 d-flex align-items-center justify-content-center bg-dark text-white">{item.name}</h5>
+                    <div className="card-body d-flex flex-column mb-3 d-flex justify-content-center">
+                        <p className="card-text text-center">Precio: $ {item.suggestions_count}</p>
+                        <ItemCount stock={5} initial={0} onAdd={onAdd} className="m"></ItemCount>
                     </div>
                 </div>
             </div>

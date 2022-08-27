@@ -10,16 +10,7 @@ const Main = () => {
             <main className="container-fluid">
                 <div className="row">
                     <Slider />
-                    <CartWidget />
                 </div>
-                {/* <div className="row">
-                    <div className="content_top my-3">
-                        <div className="heading">
-                            <h3>NOVEDADES EXCLUSIVAS</h3>
-                        </div>
-                    </div>
-                    <ItemListContainer/>
-                </div> */}
                 <div className="row">
                     <div className="col-2">
                         <div className="header_bottom_left my-3">
@@ -42,13 +33,16 @@ const Main = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-10">
+                    <div className="col-8">
                         <div className="content_top my-3">
                             <div className="heading">
                                 <h3>TODOS LOS PRODUCTOS</h3>
                             </div>
                         </div>
-                        <ItemListContainer/>
+                        <ItemListContainer />
+                    </div>
+                    <div className="col-2">
+                        <CartWidget />
                     </div>
                 </div>
             </main>
