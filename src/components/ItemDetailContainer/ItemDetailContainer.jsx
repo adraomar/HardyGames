@@ -27,7 +27,14 @@ const ItemDetailContainer = () => {
     }, [id])
 
     return (
-        <ItemDetail item={item} />
+        <>
+            <div className="content_top my-3">
+                <div className="heading">
+                    <h3>INFORMACION DEL JUEGO</h3>
+                </div>
+            </div>
+            <ItemDetail item={item} />
+        </>
     );
 }
 

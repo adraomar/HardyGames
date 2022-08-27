@@ -1,8 +1,9 @@
 import React from "react";
 import ItemListContainer from "./ItemListContainer/ItemListContainer";
+import ItemDetailContainer from "./ItemDetailContainer/ItemDetailContainer";
 import Slider from "./Slider/Slider";
 import CartWidget from "./CartWidget/cartwidget";
-import { Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 const Main = () => {
     return (
@@ -34,12 +35,10 @@ const Main = () => {
                         </div>
                     </div>
                     <div className="col-8">
-                        <div className="content_top my-3">
-                            <div className="heading">
-                                <h3>TODOS LOS PRODUCTOS</h3>
-                            </div>
-                        </div>
-                        <ItemListContainer />
+                        <Routes>
+                            <Route path={`/`} element={<ItemListContainer />} />
+                            <Route path={`/item/:id`} element={<ItemDetailContainer />} />
+                        </Routes>
                     </div>
                     <div className="col-2">
                         <CartWidget />
