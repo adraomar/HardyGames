@@ -45,10 +45,10 @@ const Footer = () => {
                         <div className="social-icons">
                             <h4>Follow Us</h4>
                             <ul>
-                                <li><Link to={`/`}><img src="images/facebook.png" alt="" /></Link></li>
-                                <li><Link to={`/`}><img src="images/twitter.png" alt="" /></Link></li>
-                                <li><Link to={`/`}><img src="images/skype.png" alt="" /> </Link></li>
-                                <li><Link to={`/`}> <img src="images/linkedin.png" alt="" /></Link></li>
+                                <li className="mx-1"><Link to={`/`}><i class="bi bi-facebook"></i></Link></li>
+                                <li className="mx-1"><Link to={`/`}><i class="bi bi-twitter"></i></Link></li>
+                                <li className="mx-1"><Link to={`/`}><i class="bi bi-skype"></i></Link></li>
+                                <li className="mx-1"><Link to={`/`}><i class="bi bi-linkedin"></i></Link></li>
                                 <div className="clear"></div>
                             </ul>
                         </div>
