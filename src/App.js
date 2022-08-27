@@ -7,16 +7,14 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Main />}/>
-          <Route path="/item/:id" element={<ItemDetailContainer/>}/>
-        </Routes>
-        <Footer />
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/item/:id" element={<ItemDetailContainer />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
