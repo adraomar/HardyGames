@@ -15,9 +15,9 @@ const Navbar = () => {
                     </Link>
 
                     <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                        <li><button type="button" className="button-5 mx-1" role="button">Inicio</button></li>
-                        <li><button type="button" className="button-5 mx-1" role="button">Productos</button></li>
-                        <li><button type="button" className="button-5 mx-1" role="button">Sobre Nosotros</button></li>
+                        <li><Link to={`/`} className="button-5 mx-1 link-light">Inicio</Link></li>
+                        <li><Link to={`/`} className="button-5 mx-1 link-light">Productos</Link></li>
+                        <li><Link to={`/`} className="button-5 mx-1 link-light">Sobre Nosotros</Link></li>
                     </ul>
 
                     <div className="col-md-3 text-end">
