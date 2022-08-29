@@ -8,7 +8,7 @@ const ItemDetailContainer = () => {
     const [item, setItem] = useState({});
 
     useEffect(() => {
-        let productos = [];
+        let productos;
 
         fetch("https://api.rawg.io/api/games?key=15c0ed5bc35d476baecf48a6c8529477")
             .then(dataJson => dataJson.json())
@@ -19,11 +19,10 @@ const ItemDetailContainer = () => {
         new Promise((resolve) => {
             setTimeout(() => {
                 resolve(productos.find((elemento) => Number(elemento.id) === Number(id)))
-            }, 5000)
+            }, 3500);
         }).then((data) => {
             setItem(data);
         })
-
     }, [id])
 
     return (

@@ -21,7 +21,7 @@ const ItemDetail = ({ item }) => {
                                 <ul>
                                     <li><span>Plataformas:</span> &nbsp; PC, PlayStation, XBOX</li>
                                     <li><span>Tamaño:</span>&nbsp; 110 GB</li>
-                                    <li><span>Units in Stock:</span>&nbsp; 566</li>
+                                    <li><span>Unidades en Stock:</span>&nbsp; 566</li>
                                 </ul>
                             </div>
                             <div className="share-desc">
