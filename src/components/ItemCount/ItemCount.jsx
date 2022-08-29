@@ -35,7 +35,7 @@ const ItemCount = (props) => {
                     </button>
                 </span>
             </div>
-            <button disabled={contador === props.initial} onClick={() => props.onAdd(contador)} className="button-5" role="button"><span><i className="bi bi-cart-plus-fill"></i></span> AGREGAR</button>
+            <button disabled={contador === props.initial} onClick={() => props.onAdd(contador)} className="button-5"><span><i className="bi bi-cart-plus-fill"></i></span> AGREGAR</button>
         </>
     );
 }

@@ -21,8 +21,8 @@ const Navbar = () => {
                     </ul>
 
                     <div className="col-md-3 text-end">
-                        <button type="button" className="button-68 mx-1" role="button">Conectarse</button>
-                        <button type="button" className="button-68 mx-1" role="button">Registrarse</button>
+                        <button type="button" className="button-68 mx-1">Conectarse</button>
+                        <button type="button" className="button-68 mx-1">Registrarse</button>
                     </div>
                 </header>
             </div>
