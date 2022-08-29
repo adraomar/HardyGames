@@ -22,20 +22,34 @@ const ItemCount = (props) => {
 
     return (
         <>
-            <div className="input-group my-3">
-                <span className="input-group-btn">
-                    <button type="button" onClick={disminuirContador} disabled={contador === props.initial} className="button-5 mx-2" data-type="minus" data-field="quant[2]">
-                        <span className="glyphicon glyphicon-minus">-</span>
-                    </button>
-                </span>
-                <input type="number" name="quant[2]" className="form-control input-number text-center" value={contador} readOnly />
-                <span className="input-group-btn">
-                    <button type="button" onClick={aumentarContador} disabled={contador === props.stock} className="button-5 mx-2" data-type="plus" data-field="quant[2]">
-                        <span className="glyphicon glyphicon-plus">+</span>
-                    </button>
-                </span>
+            <div className="row">
+                <div className="col col-8">
+                    <div className="input-group my-3">
+                        <span className="input-group-btn">
+                            <button type="button" onClick={disminuirContador} disabled={contador === props.initial} className="button-5 mx-2" data-type="minus" data-field="quant[2]">
+                                <span className="glyphicon glyphicon-minus">-</span>
+                            </button>
+                        </span>
+                        <input type="number" name="quant[2]" className="form-control input-number text-center" value={contador} readOnly />
+                        <span className="input-group-btn">
+                            <button type="button" onClick={aumentarContador} disabled={contador === props.stock} className="button-5 mx-2" data-type="plus" data-field="quant[2]">
+                                <span className="glyphicon glyphicon-plus">+</span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <div className="col col-4 d-flex align-items-end">
+                    <button disabled={contador === props.initial} onClick={() => props.onAdd(contador)} className="button-5 mb-3"><span><i className="bi bi-cart-plus-fill"></i></span> AGREGAR</button>
+                </div>
             </div>
-            <button disabled={contador === props.initial} onClick={() => props.onAdd(contador)} className="button-5"><span><i className="bi bi-cart-plus-fill"></i></span> AGREGAR</button>
+
+            {/* <div className="share-desc">
+                <div className="share">
+                    <p>Número de unidades :</p><input className="text_box" type="text" />
+                </div>
+                <div className="button">Añadir al carrito</div>
+                <div className="clear"></div>
+            </div> */}
         </>
     );
 }

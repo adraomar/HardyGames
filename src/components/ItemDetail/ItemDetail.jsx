@@ -1,7 +1,11 @@
-import React from 'react'
+import React from 'react';
+import ItemCount from "../ItemCount/ItemCount";
 import { Link } from 'react-router-dom';
 
 const ItemDetail = ({ item }) => {
+    const onAdd = (contador) => {
+        alert("Se agregaron '" + contador + "' copia(s) del juego '" + item.name + "'.");
+    }
     return (
         <>
             <div className="section group">
@@ -24,13 +28,7 @@ const ItemDetail = ({ item }) => {
                                     <li><span>Unidades en Stock:</span>&nbsp; 566</li>
                                 </ul>
                             </div>
-                            <div className="share-desc">
-                                <div className="share">
-                                    <p>Número de unidades :</p><input className="text_box" type="text" />
-                                </div>
-                                <div className="button"><span><Link to={`/item/${item.id}`}>Añadir al carrito</Link></span></div>
-                                <div className="clear"></div>
-                            </div>
+                            <ItemCount initial={0} stock={5} onAdd={onAdd} />
                             <div className="wish-list">
                                 <ul>
                                     <li className="wish"><Link to={`/item/${item.id}`}>Añadir a favoritos</Link></li>
