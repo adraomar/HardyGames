@@ -1,18 +1,30 @@
 import './App.css';
-import Header from './components/Header';
-import Main from './components/Main';
-import Footer from './components/Footer';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import RoutesMap from './components/RoutesMap/RoutesMap';
 
 function App() {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    let productos = [];
+
+    fetch("https://api.rawg.io/api/games?key=15c0ed5bc35d476baecf48a6c8529477")
+      .then(dataJson => dataJson.json())
+      .then(data => {
+        productos = data.results;
+      })
+
+    new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(productos);
+      }, 3500);
+    }).then((data) => {
+      setItems(data);
+    })
+  }, [])
+
   return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="*" element={<Main />}/>
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <RoutesMap items={ items }/>
   );
 }
 

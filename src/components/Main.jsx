@@ -5,7 +5,7 @@ import Slider from "./Slider/Slider";
 import CartWidget from "./CartWidget/cartwidget";
 import { Routes, Route, Link } from "react-router-dom";
 
-const Main = () => {
+const Main = ({ items }) => {
     return (
         <>
             <main className="container-fluid">
@@ -18,26 +18,27 @@ const Main = () => {
                             <div className="categories">
                                 <ul>
                                     <h3>Categoria</h3>
-                                    <li><Link to={`/`}>Todos</Link></li>
-                                    <li><Link to={`/`}>Acción</Link></li>
-                                    <li><Link to={`/`}>Aventura</Link></li>
-                                    <li><Link to={`/`}>Arcade</Link></li>
-                                    <li><Link to={`/`}>Deportivos</Link></li>
-                                    <li><Link to={`/`}>Estrategia</Link></li>
-                                    <li><Link to={`/`}>Simulación</Link></li>
-                                    <li><Link to={`/`}>RPG</Link></li>
-                                    <li><Link to={`/`}>MOBAS</Link></li>
-                                    <li><Link to={`/`}>Musicales</Link></li>
-                                    <li><Link to={`/`}>Infantiles</Link></li>
-                                    <li><Link to={`/`}>Carreras</Link></li>
+                                    <li><Link to={`/category/0`}>Todos</Link></li>
+                                    <li><Link to={`/category/1`}>Acción</Link></li>
+                                    <li><Link to={`/category/2`}>Aventura</Link></li>
+                                    <li><Link to={`/category/3`}>Arcade</Link></li>
+                                    <li><Link to={`/category/4`}>Deportivos</Link></li>
+                                    <li><Link to={`/category/5`}>Estrategia</Link></li>
+                                    <li><Link to={`/category/6`}>Simulación</Link></li>
+                                    <li><Link to={`/category/7`}>RPG</Link></li>
+                                    <li><Link to={`/category/8`}>MOBAS</Link></li>
+                                    <li><Link to={`/category/9`}>Musicales</Link></li>
+                                    <li><Link to={`/category/10`}>Infantiles</Link></li>
+                                    <li><Link to={`/category/11`}>Carreras</Link></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div className="col-8">
                         <Routes>
-                            <Route path={`/`} element={<ItemListContainer />} />
-                            <Route path={`/item/:id`} element={<ItemDetailContainer />} />
+                            <Route path={`/`} element={<ItemListContainer items={items}/>} />
+                            <Route path={`/item/:id`} element={<ItemDetailContainer items={items}/>} />
+                            <Route path={`/category/:id`} element={<ItemListContainer items={items}/>} />
                         </Routes>
                     </div>
                     <div className="col-2">

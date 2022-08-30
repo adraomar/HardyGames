@@ -47,7 +47,7 @@ const Item = ({ item }) => {
                                 <span className="ml-3 fs-5 col col-6 text-end">$ {item.suggestions_count}</span>
                             </div>
                         </div>
-                        <Link to={`/item/${item.id}`} item={item} className="btn btn-dark w-100">Ver Detalle</Link>
+                        <Link to={`/item/${item.id}`} className="btn btn-dark w-100">Ver Detalle</Link>
                     </div>
 
                 </div>

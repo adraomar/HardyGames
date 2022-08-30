@@ -42,14 +42,6 @@ const ItemCount = (props) => {
                     <button disabled={contador === props.initial} onClick={() => props.onAdd(contador)} className="button-5 mb-3"><span><i className="bi bi-cart-plus-fill"></i></span> AGREGAR</button>
                 </div>
             </div>
-
-            {/* <div className="share-desc">
-                <div className="share">
-                    <p>Número de unidades :</p><input className="text_box" type="text" />
-                </div>
-                <div className="button">Añadir al carrito</div>
-                <div className="clear"></div>
-            </div> */}
         </>
     );
 }
