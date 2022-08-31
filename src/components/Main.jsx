@@ -1,9 +1,7 @@
 import React from "react";
-import ItemListContainer from "./ItemListContainer/ItemListContainer";
-import ItemDetailContainer from "./ItemDetailContainer/ItemDetailContainer";
 import Slider from "./Slider/Slider";
-import CartWidget from "./CartWidget/cartwidget";
-import { Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import ItemListContainer from "./ItemListContainer/ItemListContainer";
 
 const Main = () => {
     return (
@@ -34,15 +32,8 @@ const Main = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-8">
-                        <Routes>
-                            <Route path={`/`} element={<ItemListContainer/>} />
-                            <Route path={`/item/:id`} element={<ItemDetailContainer/>} />
-                            <Route path={`/category/:id`} element={<ItemListContainer/>} />
-                        </Routes>
-                    </div>
-                    <div className="col-2">
-                        <CartWidget />
+                    <div className="col-10">
+                        <ItemListContainer/>
                     </div>
                 </div>
             </main>
