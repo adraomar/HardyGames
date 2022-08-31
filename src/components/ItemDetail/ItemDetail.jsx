@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom';
 import CartWidget from '../CartWidget/cartwidget';
 
 const ItemDetail = ({ item }) => {
+    let counter = 0;
 
     const onAdd = (contador) => {
         alert("Se agregaron '" + contador + "' copia(s) del juego '" + item.name + "'.");
+        counter = contador;
     }
     return (
         <>
@@ -68,7 +70,7 @@ const ItemDetail = ({ item }) => {
                         </div>
                     </div>
                     <div className="col-2">
-                        <CartWidget/>
+                        <CartWidget item={item} count={counter}/>
                     </div>
                 </div>
             </div>

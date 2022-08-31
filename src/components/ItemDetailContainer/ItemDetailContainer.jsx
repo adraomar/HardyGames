@@ -7,7 +7,7 @@ const ItemDetailContainer = () => {
     const [item, setItem] = useState({});
 
     useEffect(() => {
-        let productos;
+        let productos = [];
 
         fetch("https://api.rawg.io/api/games?key=15c0ed5bc35d476baecf48a6c8529477")
             .then(dataJson => dataJson.json())

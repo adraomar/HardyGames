@@ -33,7 +33,7 @@ const Main = () => {
                         </div>
                     </div>
                     <div className="col-10">
-                        <ItemListContainer/>
+                        <ItemListContainer />
                     </div>
                 </div>
             </main>
