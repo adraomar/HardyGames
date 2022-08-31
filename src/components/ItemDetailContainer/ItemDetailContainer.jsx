@@ -1,21 +1,28 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "../ItemDetail/ItemDetail";
 
-const ItemDetailContainer = ({items}) => {
+const ItemDetailContainer = () => {
     const { id } = useParams();
     const [item, setItem] = useState({});
 
     useEffect(() => {
-        let productos = items;
+        let productos;
+
+        fetch("https://api.rawg.io/api/games?key=15c0ed5bc35d476baecf48a6c8529477")
+            .then(dataJson => dataJson.json())
+            .then(data => {
+                productos = data.results;
+            })
 
         new Promise((resolve) => {
-            resolve(productos.find((elemento) => Number(elemento.id) === Number(id)))
+            setTimeout(() => {
+                resolve(productos.find((elemento) => Number(elemento.id) === Number(id)))
+            }, 1500);
         }).then((data) => {
             setItem(data);
         })
-    }, [id, items])
+    }, [id])
 
     return (
         <>

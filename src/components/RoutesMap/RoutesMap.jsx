@@ -4,12 +4,12 @@ import Header from "../Header";
 import Main from "../Main";
 import Footer from "../Footer";
 
-const RoutesMap = ( { items } ) => {
+const RoutesMap = () => {
     return (
         <BrowserRouter>
             <Header />
             <Routes>
-                <Route path="*" element={<Main items={ items }/>} />
+                <Route path="*" element={<Main/>} />
             </Routes>
             <Footer />
         </BrowserRouter>

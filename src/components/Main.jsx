@@ -5,7 +5,7 @@ import Slider from "./Slider/Slider";
 import CartWidget from "./CartWidget/cartwidget";
 import { Routes, Route, Link } from "react-router-dom";
 
-const Main = ({ items }) => {
+const Main = () => {
     return (
         <>
             <main className="container-fluid">
@@ -36,9 +36,9 @@ const Main = ({ items }) => {
                     </div>
                     <div className="col-8">
                         <Routes>
-                            <Route path={`/`} element={<ItemListContainer items={items}/>} />
-                            <Route path={`/item/:id`} element={<ItemDetailContainer items={items}/>} />
-                            <Route path={`/category/:id`} element={<ItemListContainer items={items}/>} />
+                            <Route path={`/`} element={<ItemListContainer/>} />
+                            <Route path={`/item/:id`} element={<ItemDetailContainer/>} />
+                            <Route path={`/category/:id`} element={<ItemListContainer/>} />
                         </Routes>
                     </div>
                     <div className="col-2">
