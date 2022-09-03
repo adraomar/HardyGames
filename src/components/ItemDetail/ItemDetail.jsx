@@ -10,6 +10,7 @@ const ItemDetail = ({ item }) => {
         alert("Se agregaron '" + contador + "' copia(s) del juego '" + item.name + "'.");
         setCounter(contador);
     }
+
     return (
         <>
             <div className="container-fluid">

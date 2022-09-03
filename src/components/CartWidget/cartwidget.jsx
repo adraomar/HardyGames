@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const CartWidget = ({ item, count }) => {
+const CartWidget = ({ item, count}) => {
+    
     let carrito = [];
-
     carrito.push(item);
 
     return (
@@ -11,7 +11,7 @@ const CartWidget = ({ item, count }) => {
             <div className="header_bottom_left my-3">
                 <div className="categories">
                     <ul className="list-group">
-                        <h3><i className="bi bi-cart4"></i> Carrito ({carrito.length})</h3>
+                        <h3><i className="bi bi-cart4"></i> Carrito ({count})</h3>
                         {
                             carrito.map((elemento, index) =>
                             <li key={index}><Link to={`/`}>{elemento.name} ({count})</Link></li>
