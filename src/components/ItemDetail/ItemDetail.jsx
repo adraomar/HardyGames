@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import ItemCount from "../ItemCount/ItemCount";
 import { Link } from 'react-router-dom';
 import CartWidget from '../CartWidget/cartwidget';
+import { CartContext } from '../../context/CartContext';
 
 const ItemDetail = ({ item }) => {
+    const { addItem } = useContext(CartContext);
     const [counter, setCounter] = useState(0);
 
     const onAdd = (contador) => {
         alert("Se agregaron '" + contador + "' copia(s) del juego '" + item.name + "'.");
         setCounter(contador);
+
+        addItem(item, contador);
     }
 
     return (
