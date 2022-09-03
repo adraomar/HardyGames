@@ -5,6 +5,7 @@ import Main from "../Main";
 import Footer from "../Footer";
 import ItemListContainer from "../ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
+import CartContainer from '../CartContainer/CartContainer';
 
 const RoutesMap = () => {
     return (
@@ -14,6 +15,7 @@ const RoutesMap = () => {
                 <Route path={`/`} element={<Main />} />
                 <Route path={`/item/:id`} element={<ItemDetailContainer />} />
                 <Route path={`/category/:id`} element={<ItemListContainer />} />
+                <Route path={`/cart`} element={<CartContainer/>}/>
             </Routes>
             <Footer />
         </BrowserRouter>

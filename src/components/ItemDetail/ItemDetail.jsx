@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ItemCount from "../ItemCount/ItemCount";
 import { Link } from 'react-router-dom';
 import CartWidget from '../CartWidget/cartwidget';
 
 const ItemDetail = ({ item }) => {
-    let counter = 0;
+    const [counter, setCounter] = useState(0);
 
     const onAdd = (contador) => {
         alert("Se agregaron '" + contador + "' copia(s) del juego '" + item.name + "'.");
-        counter = contador;
+        setCounter(contador);
     }
     return (
         <>
@@ -35,7 +35,12 @@ const ItemDetail = ({ item }) => {
                                                 <li><span>Unidades en Stock:</span>&nbsp; 566</li>
                                             </ul>
                                         </div>
-                                        <ItemCount initial={0} stock={5} onAdd={onAdd} />
+                                        {
+                                            counter !== 0 ? 
+                                            <Link to={`/cart`} className="button-5 mb-3">Finalizar compra</Link> : 
+                                            <ItemCount initial={0} stock={5} onAdd={onAdd} />
+                                        }
+                                        
                                         <div className="wish-list">
                                             <ul>
                                                 <li className="wish"><Link to={`/item/${item.id}`}>Añadir a favoritos</Link></li>
