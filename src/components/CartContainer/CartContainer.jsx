@@ -1,21 +1,19 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../../context/CartContext';
+import Cart from '../Cart/Cart';
 
 const CartContainer = () => {
     const { items, clear } = useContext(CartContext);
     return (
         <>
-            <div>CartContainer</div>
-            <ol>
-                {
-                    items.map((item, index) =>
-                        <li key={index}>{item.name} - {item.quantity}</li>
-                    )
-                }
-            </ol>
+            {
+                items.map((item, index) =>
+                    <Cart key={index} item={item} />
+                )
+            }
             {
                 items.length < 1 &&
-                <h2 className="h2"> NO HAY ITEMS...</h2>
+                <h2 className="h2"> El carrito está vacío...</h2>
             }
             <button className="button-5" onClick={clear}>Vaciar Carrito</button>
         </>

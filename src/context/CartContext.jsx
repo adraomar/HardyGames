@@ -1,27 +1,26 @@
 import React, { useState, createContext } from "react";
 
 export const CartContext = createContext();
+
 export function CartProvider({ children }) {
     const [items, setItems] = useState([]);
 
-
     function addItem(item, quantity) {
-        console.log({ ...item, quantity });
+        if(isInCart(item.id)) {
+            let aux = items; 
+            console.log(aux);
 
-        if (isInCart(item.id)) {
-            let aux = item;
-            let itemIndex = aux.indexOf((element) => element.id === item.id)
+            let itemIndex = aux.findIndex((element) => element.id === item.id)
             aux[itemIndex].quantity += quantity;
 
-            setItems([...aux])
+            setItems([...aux]);
         } else {
             setItems([...items, { ...item, quantity }]);
         }
-
     }
 
     function removeItem(itemID) {
-        //
+        setItems(items.filter((element) => element.id !== itemID))
     }
 
     function clear() {
@@ -29,11 +28,7 @@ export function CartProvider({ children }) {
     }
 
     function isInCart(itemID) {
-        if (!items) {
-            return items.some((element) => element.id === itemID);
-        } else {
-            return false;
-        }
+        return items.find((element) => element.id === itemID);
     }
 
     return (
