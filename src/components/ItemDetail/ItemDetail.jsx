@@ -41,7 +41,7 @@ const ItemDetail = ({ item }) => {
                                         </div>
                                         {
                                             counter !== 0 ?
-                                                <Link to={`/cart`} className="button-5 mb-3">Finalizar compra</Link> :
+                                                <><Link to={`/cart`} className="button-5 mb-3">Finalizar compra</Link><Link to={`/`} className="button-5 mb-3">Seguir comprando</Link></> :
                                                 <ItemCount initial={0} stock={5} onAdd={onAdd} />
                                         }
 
