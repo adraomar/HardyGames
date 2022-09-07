@@ -79,7 +79,7 @@ const ItemDetail = ({ item }) => {
                         </div>
                     </div>
                     <div className="col-2">
-                        <CartWidget item={item} count={counter}/>
+                        <CartWidget />
                     </div>
                 </div>
             </div>
