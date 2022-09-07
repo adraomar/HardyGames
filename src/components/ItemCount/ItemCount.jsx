@@ -39,7 +39,7 @@ const ItemCount = (props) => {
                     </div>
                 </div>
                 <div className="col col-4 d-flex align-items-end">
-                    <button disabled={contador === props.initial} onClick={() => props.onAdd(contador)} className="button-5 mb-3"><span><i className="bi bi-cart-plus-fill"></i></span> AGREGAR</button>
+                    <button id="btnAgregar" disabled={contador === props.initial} onClick={() => props.onAdd(contador)} className="button-5 mb-3"><span><i className="bi bi-cart-plus-fill"></i></span> AGREGAR</button>
                 </div>
             </div>
         </>

@@ -9,9 +9,8 @@ const ItemDetail = ({ item }) => {
     const [counter, setCounter] = useState(0);
 
     const onAdd = (contador) => {
-        alert("Se agregaron '" + contador + "' copia(s) del juego '" + item.name + "'.");
+        alert(`Se han agregado '${contador}' copia(s) del juego '${item.name}`);
         setCounter(contador);
-
         addItem(item, contador);
     }
 
@@ -41,11 +40,11 @@ const ItemDetail = ({ item }) => {
                                             </ul>
                                         </div>
                                         {
-                                            counter !== 0 ? 
-                                            <Link to={`/cart`} className="button-5 mb-3">Finalizar compra</Link> : 
-                                            <ItemCount initial={0} stock={5} onAdd={onAdd} />
+                                            counter !== 0 ?
+                                                <Link to={`/cart`} className="button-5 mb-3">Finalizar compra</Link> :
+                                                <ItemCount initial={0} stock={5} onAdd={onAdd} />
                                         }
-                                        
+
                                         <div className="wish-list">
                                             <ul>
                                                 <li className="wish"><Link to={`/item/${item.id}`}>Añadir a favoritos</Link></li>
