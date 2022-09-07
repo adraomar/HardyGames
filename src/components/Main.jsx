@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "./Slider/Slider";
 import { Link } from "react-router-dom";
 import ItemListContainer from "./ItemListContainer/ItemListContainer";
+import CartWidget from "./CartWidget/cartwidget";
 
 const Main = () => {
     return (
@@ -32,8 +33,11 @@ const Main = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-10">
+                    <div className="col-8">
                         <ItemListContainer />
+                    </div>
+                    <div className="col-2">
+                        <CartWidget />
                     </div>
                 </div>
             </main>
