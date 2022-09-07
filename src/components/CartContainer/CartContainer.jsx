@@ -1,10 +1,9 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
-import Cart from '../Cart/Cart';
 
 const CartContainer = () => {
-    const { items, removeItem } = useContext(CartContext);
+    const { items, clear, removeItem } = useContext(CartContext);
     return (
 
         <div className="container-fluid">
@@ -13,16 +12,45 @@ const CartContainer = () => {
                     <h3>CARRITO DE COMPRAS</h3>
                 </div>
             </div>
-
             {items.length > 0 && (
-                <div className="container border m-lg-5">
-                    <div className="row d-flex align-items-center justify-content-center">
-                        <div className="col col-12 col-md-6 my-4 py-2 ">
+                <div className="container overflow-auto">
+                    <button onClick={() => clear()} className="btn btn-warning text-uppercase my-2">
+                        <i className="bi bi-trash mx-3"></i>
+                        Vaciar Carrito
+                    </button>
+                    <table className="table text-center">
+                        <thead className="table-dark">
+                            <tr>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Imagen</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                             {items.map((item, index) => (
-                                <Cart key={index} item={item} quitar={removeItem} />
+                                <tr key={index} className="border align-middle">
+                                    <th className='align-middle' scope="row">{item.quantity}</th>
+                                    <td className='align-middle'><img src={item.background_image} className="img-fluid img-thumbnail" style={{ width: "10rem" }} alt="..." /></td>
+                                    <td className='align-middle'>{item.name}</td>
+                                    <td className='align-middle'>$ {item.suggestions_count}</td>
+                                    <td className="align-middle"><button onClick={() => removeItem(item.id)} className="btn btn-danger text-uppercase mt-2">
+                                        <i className="bi bi-trash mx-3"></i>
+                                        Eliminar
+                                    </button></td>
+                                </tr>
                             ))}
-                        </div>
-                    </div>
+                        </tbody>
+                        <tfoot className="table-dark">
+                            <tr className="border align-middle">
+                                <th scope="row"></th>
+                                <td colSpan="2"></td>
+                                <td className="align-middle">Total: $<>{items.reduce((pv, cv) => pv + (cv.suggestions_count * cv.quantity), 0)}</></td>
+                                <th scope="row"></th>
+                            </tr>
+                        </tfoot>
+                    </table>
                 </div>
             )}
             {items.length < 1 && (
