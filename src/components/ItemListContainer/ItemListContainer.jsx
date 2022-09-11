@@ -8,7 +8,7 @@ const ItemListContainer = () => {
 
     useEffect(() => {
         const getColData = async () => {
-
+            
             try {
                 const data = collection(db, "productos");
                 const col = await getDocs(data);

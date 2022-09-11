@@ -8,7 +8,6 @@ export function CartProvider({ children }) {
     function addItem(item, quantity) {
         if(isInCart(item.id)) {
             let aux = items; 
-            console.log(aux);
 
             let itemIndex = aux.findIndex((element) => element.id === item.id)
             aux[itemIndex].quantity += quantity;
