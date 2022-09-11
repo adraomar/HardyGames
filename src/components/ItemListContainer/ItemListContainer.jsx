@@ -1,25 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import ItemList from '../ItemList/ItemList';
+import db from '../../services';
+import { collection, getDocs } from 'firebase/firestore';
 
 const ItemListContainer = () => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        let productos = [];
+        const getColData = async () => {
 
-        fetch("https://api.rawg.io/api/games?key=15c0ed5bc35d476baecf48a6c8529477")
-            .then(dataJson => dataJson.json())
-            .then(data => {
-                productos = data.results;
-            })
+            try {
+                const data = collection(db, "productos");
+                const col = await getDocs(data);
+                const res = col.docs.map((doc) => doc={ id:doc.id, ...doc.data() });
 
-        new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(productos);
-            }, 3500);
-        }).then((data) => {
-            setItems(data);
-        })
+                setItems(res);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        getColData();
+
     }, [])
     return (
         <>

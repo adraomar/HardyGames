@@ -32,9 +32,9 @@ const CartContainer = () => {
                             {items.map((item, index) => (
                                 <tr key={index} className="border align-middle">
                                     <th className='align-middle' scope="row">{item.quantity}</th>
-                                    <td className='align-middle'><img src={item.background_image} className="img-fluid img-thumbnail" style={{ width: "10rem" }} alt="..." /></td>
+                                    <td className='align-middle'><img src={item.img} className="img-fluid img-thumbnail" style={{ width: "10rem" }} alt="..." /></td>
                                     <td className='align-middle'>{item.name}</td>
-                                    <td className='align-middle'>$ {item.suggestions_count}</td>
+                                    <td className='align-middle'>$ {item.price}</td>
                                     <td className="align-middle"><button onClick={() => removeItem(item.id)} className="btn btn-danger text-uppercase mt-2">
                                         <i className="bi bi-trash mx-3"></i>
                                         Eliminar
@@ -46,7 +46,7 @@ const CartContainer = () => {
                             <tr className="border align-middle">
                                 <th scope="row"></th>
                                 <td colSpan="2"></td>
-                                <td className="align-middle">Total: $<>{items.reduce((pv, cv) => pv + (cv.suggestions_count * cv.quantity), 0)}</></td>
+                                <td className="align-middle">Total: $<>{items.reduce((pv, cv) => pv + (cv.price * cv.quantity), 0)}</></td>
                                 <th scope="row"></th>
                             </tr>
                         </tfoot>

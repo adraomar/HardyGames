@@ -23,26 +23,25 @@ const ItemDetail = ({ item }) => {
                             <div className="cont-desc span_1_of_2">
                                 <div className="product-details">
                                     <div className="grid images_3_of_2">
-                                        <img src={item.background_image} alt="" />
+                                        <img src={item.img} alt="" />
                                     </div>
                                     <div className="desc span_3_of_2">
                                         <h2>{item.name}</h2>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                            incididunt ut labore.</p>
+                                        <p>{item.description}</p>
                                         <div className="price">
-                                            <p>Precio: <span>$ {item.suggestions_count}</span></p>
+                                            <p>Precio: <span>$ {item.price}</span></p>
                                         </div>
                                         <div className="available">
                                             <ul>
-                                                <li><span>Plataformas:</span> &nbsp; PC, PlayStation, XBOX</li>
+                                                <li><span>Plataformas:</span> &nbsp; {item.plataform}</li>
                                                 <li><span>Tamaño:</span>&nbsp; 110 GB</li>
-                                                <li><span>Unidades en Stock:</span>&nbsp; 566</li>
+                                                <li><span>Unidades en Stock:</span>&nbsp; {item.stock}</li>
                                             </ul>
                                         </div>
                                         {
                                             counter !== 0 ?
                                                 <><Link to={`/cart`} className="button-5 mb-3">Finalizar compra</Link><Link to={`/`} className="button-5 mb-3">Seguir comprando</Link></> :
-                                                <ItemCount initial={0} stock={5} onAdd={onAdd} />
+                                                <ItemCount initial={0} stock={item.stock} onAdd={onAdd} />
                                         }
 
                                         <div className="wish-list">
@@ -56,24 +55,7 @@ const ItemDetail = ({ item }) => {
                                 </div>
                                 <div className="product_desc">
                                     <h2>Descripción del producto :</h2>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                                        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                                        galley of type and scrambled it to make a type specimen book. It has survived not only five
-                                        centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                                    </p>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                                        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                                        galley of type and scrambled it to make a type specimen book. It has survived not only five
-                                        centuries, but also the leap into electronic typesetting, remaining essentially
-                                        unchanged.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                        Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                        printer took a galley of type and scrambled it to make a type specimen book. It has survived
-                                        not only five centuries, but also the leap into electronic typesetting, remaining
-                                        essentially unchanged.Lorem Ipsum is simply dummy text of the printing and typesetting
-                                        industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when
-                                        an unknown printer took a galley of type and scrambled it to make a type specimen book. It
-                                        has survived not only five centuries, but also the leap into electronic typesetting,
-                                        remaining essentially unchanged.</p>
+                                    <p>{item.description}</p>
                                 </div>
                             </div>
                         </div>
