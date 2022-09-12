@@ -17,7 +17,7 @@ const Navbar = () => {
                     <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                         <li><Link to={`/`} className="button-5 mx-1 link-light">Inicio</Link></li>
                         <li><Link to={`/`} className="button-5 mx-1 link-light">Productos</Link></li>
-                        <li><Link to={`/`} className="button-5 mx-1 link-light">Sobre Nosotros</Link></li>
+                        <li><Link to={`/nosotros`} className="button-5 mx-1 link-light">Sobre Nosotros</Link></li>
                     </ul>
 
                     <div className="col-md-3 text-end">
