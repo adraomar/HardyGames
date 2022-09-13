@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import db from '../../services';
 import { collection, getDocs } from 'firebase/firestore';
+import Header from "../Header";
+import Footer from "../Footer";
 
 const ItemDetailContainer = () => {
     const { id } = useParams();
@@ -28,12 +30,16 @@ const ItemDetailContainer = () => {
 
     return (
         <>
-            <div className="content_top my-3">
-                <div className="heading">
-                    <h3>INFORMACION DEL JUEGO</h3>
+            <Header />
+            <main className="container-fluid">
+                <div className="content_top my-3">
+                    <div className="heading">
+                        <h3>INFORMACION DEL JUEGO</h3>
+                    </div>
                 </div>
-            </div>
-            <ItemDetail item={item} />
+                <ItemDetail item={item} />
+            </main >
+            <Footer/>
         </>
     );
 }
