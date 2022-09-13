@@ -9,7 +9,7 @@ const Item = ({ item }) => {
             <div className="col">
                 <div className="card h-100">
                     <h5 className="card-title p-3 d-flex align-items-center justify-content-center text-center bg-dark text-white">{item.name}</h5>
-                    <Link to={`/item/${item.id}`}>
+                    <Link to={`/game/${item.id}`}>
                         <img src={item.img} className="card-img-top" alt="..." />
                     </Link>
                     <div className="card-body">
@@ -48,7 +48,7 @@ const Item = ({ item }) => {
                                 <span className="ml-3 fs-5 col col-6 text-end">$ {item.price}</span>
                             </div>
                         </div>
-                        <Link to={`/item/${item.id}`} className="btn btn-dark w-100">Ver Detalle</Link>
+                        <Link to={`/game/${item.id}`} className="btn btn-dark w-100">Ver Detalle</Link>
                     </div>
 
                 </div>
