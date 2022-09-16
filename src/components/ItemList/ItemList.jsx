@@ -1,6 +1,5 @@
 import React from "react";
 import Item from "../Item/Item";
-import { Link } from "react-router-dom";
 
 const ItemList = ({ items }) => {
     return (
@@ -18,12 +17,6 @@ const ItemList = ({ items }) => {
                     </div>
                 }
             </div>
-            <nav aria-label="Page navigation example">
-                <ul className="pagination pagination-lg justify-content-center mt-3">
-                    <li className="page-item"><Link to={`page=1`} className="page-link bg-danger text-light">Anterior</Link></li>
-                    <li className="page-item"><Link to={`page=2`} className="page-link bg-danger text-light">Siguiente</Link></li>
-                </ul>
-            </nav>
         </>
     );
 }

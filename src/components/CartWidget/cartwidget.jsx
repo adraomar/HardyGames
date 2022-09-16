@@ -22,7 +22,7 @@ const CartWidget = () => {
                     </ul>
                 </div>
                 {items.length > 0 && (
-                    <div class="d-grid gap-2">
+                    <div className="d-grid gap-2">
                         <Link to={`/cart`} className="btn btn-success mt-1 text-uppercase">Ver carrito</Link>
                     </div>
                 )}

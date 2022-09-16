@@ -8,7 +8,7 @@ const Item = ({ item }) => {
         <>
             <div className="col">
                 <div className="card h-100">
-                    <h5 className="card-title p-3 d-flex align-items-center justify-content-center text-center bg-dark text-white">{item.name}</h5>
+                    <h5 id="card-title" className="card-title p-3 d-flex align-items-center justify-content-center text-center bg-dark text-white">{item.name}</h5>
                     <Link to={`/game/${item.id}`}>
                         <img src={item.img} className="card-img-top" alt="..." />
                     </Link>

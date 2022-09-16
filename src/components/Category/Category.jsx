@@ -1,6 +1,4 @@
 import React from 'react'
-import Header from '../Header'
-import Footer from '../Footer';
 import Slider from '../Slider/Slider';
 import Sidebar from '../Sidebar/Sidebar';
 import ItemListContainer from '../ItemListContainer/ItemListContainer';
@@ -11,7 +9,6 @@ const Category = () => {
     const { name } = useParams();
     return (
         <>
-            <Header />
             <main className="container-fluid">
                 <div className="row">
                     <Slider />
@@ -28,7 +25,6 @@ const Category = () => {
                     </div>
                 </div>
             </main>
-            <Footer />
         </>
     )
 }
