@@ -6,6 +6,7 @@ import CartContainer from '../CartContainer/CartContainer';
 import Category from '../Category/Category';
 import Header from '../Header';
 import Footer from '../Footer';
+import Checkout from '../Checkout/Checkout';
 
 const RoutesMap = () => {
     return (
@@ -17,6 +18,7 @@ const RoutesMap = () => {
                 <Route path={`/category/:name`} element={<Category/>} />
                 <Route path={`/cart`} element={<CartContainer />} />
                 <Route path={`/about`} element={<Main />} />
+                <Route path={`/checkout`} element={<Checkout/>} />
             </Routes>
             <Footer/>
         </BrowserRouter>
