@@ -21,7 +21,7 @@ const CartContainer = () => {
                             </button>
                             <Link to="/checkout" className="btn btn-success text-uppercase my-2 mx-2">
                                 <i className="bi bi-credit-card-fill me-2"></i>
-                                Finalizar compra
+                                Checkout
                             </Link>
                             <table className="table text-center">
                                 <thead className="table-dark">

@@ -3,13 +3,20 @@ import ItemCount from "../ItemCount/ItemCount";
 import { Link } from 'react-router-dom';
 import CartWidget from '../CartWidget/cartwidget';
 import { CartContext } from '../../context/CartContext';
+import Swal from 'sweetalert2'
 
 const ItemDetail = ({ item }) => {
     const { addItem } = useContext(CartContext);
     const [counter, setCounter] = useState(0);
 
     const onAdd = (contador) => {
-        alert(`Se han agregado '${contador}' copia(s) del juego '${item.name}`);
+
+        if(contador === 1) {
+            Swal.fire(`Se ha agregado ${item.name} al carrito`);
+        } else {
+            Swal.fire(`Se han agregado ${contador} ${item.name} al carrito`);
+        }
+
         setCounter(contador);
         addItem(item, contador);
     }
@@ -26,7 +33,11 @@ const ItemDetail = ({ item }) => {
                                         <img src={item.img} alt="" />
                                     </div>
                                     <div className="desc span_3_of_2">
-                                        <h2>{item.name}</h2>
+                                        <h2 className="h2">{item.name}</h2>
+                                        <div>
+                                            <h2 className="h2">Descripción del producto</h2>
+                                        </div>
+
                                         <p>{item.description}</p>
                                         <div className="price">
                                             <p>Precio: <span>$ {item.price}</span></p>
@@ -46,16 +57,12 @@ const ItemDetail = ({ item }) => {
 
                                         <div className="wish-list">
                                             <ul>
-                                                <li className="wish"><Link to={`/item/${item.id}`}>Añadir a favoritos</Link></li>
-                                                <li className="compare"><Link to={`/item/${item.id}`}>Comparar productos</Link></li>
+                                                <li className="wish"><Link to={`/game/${item.id}`}>Añadir a favoritos</Link></li>
+                                                <li className="compare"><Link to={`/game/${item.id}`}>Comparar productos</Link></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div className="clear"></div>
-                                </div>
-                                <div className="product_desc">
-                                    <h2>Descripción del producto :</h2>
-                                    <p>{item.description}</p>
                                 </div>
                             </div>
                         </div>

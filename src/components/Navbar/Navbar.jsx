@@ -20,10 +20,7 @@ const Navbar = () => {
                         <li><Link to={`/nosotros`} className="button-5 mx-1 link-light">Sobre Nosotros</Link></li>
                     </ul>
 
-                    <div className="col-md-3 text-end">
-                        <button type="button" className="button-68 mx-1">Conectarse</button>
-                        <button type="button" className="button-68 mx-1">Registrarse</button>
-                    </div>
+                    <div className="col-md-3 text-end"></div>
                 </header>
             </div>
         </>

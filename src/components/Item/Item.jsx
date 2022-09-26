@@ -8,7 +8,11 @@ const Item = ({ item }) => {
         <>
             <div className="col">
                 <div className="card h-100">
-                    <h5 id="card-title" className="card-title p-3 d-flex align-items-center justify-content-center text-center bg-dark text-white">{item.name}</h5>
+                    <div id="card-title" className="content_top d-flex align-items-center justify-content-center">
+                        <div className="heading">
+                            <h3 className="h3 ">{item.name}</h3>
+                        </div>
+                    </div>
                     <Link to={`/game/${item.id}`}>
                         <img src={item.img} className="card-img-top" alt="..." />
                     </Link>
@@ -35,6 +39,7 @@ const Item = ({ item }) => {
                                     <i className="bi bi-xbox me-1"></i>
                                     <i className="bi bi-pc-display me-1"></i> */}
                                     {item.plataform}
+
                                 </span>
                             </div>
                         </div>
