@@ -11,14 +11,43 @@ const ItemDetail = ({ item }) => {
 
     const onAdd = (contador) => {
 
-        if(contador === 1) {
-            Swal.fire(`Se ha agregado ${item.name} al carrito`);
-        } else {
-            Swal.fire(`Se han agregado ${contador} ${item.name} al carrito`);
-        }
+        const swalButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success mx-1',
+                cancelButton: 'btn btn-danger mx-1'
+            },
+            buttonsStyling: false
+        })
 
-        setCounter(contador);
-        addItem(item, contador);
+        swalButtons.fire({
+            title: '¿Estás seguro?',
+            text: `Se van a agregar (${contador}) del juego ${item.name} al carrito`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Agregar',
+            cancelButtonText: 'Cancelar',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                swalButtons.fire(
+                    'Agregado(s)!',
+                    'Tu(s) producto(s) fueron agregado(s) al carrito correctamente',
+                    'success'
+                )
+
+                setCounter(contador);
+                addItem(item, contador);
+
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalButtons.fire(
+                    'Operacion cancelada!',
+                    'Ningun producto(s) ha sido agregado al carrito!',
+                    'error'
+                )
+            }
+        })
     }
 
     return (

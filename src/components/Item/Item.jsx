@@ -2,7 +2,9 @@ import React from "react";
 import '../Item/Item.css';
 import { Link } from "react-router-dom";
 
-const Item = ({ item }) => {
+const Item = ({ item, idx }) => {
+
+    const array = item.plataform.split(", ");
 
     return (
         <>
@@ -17,43 +19,25 @@ const Item = ({ item }) => {
                         <img src={item.img} className="card-img-top" alt="..." />
                     </Link>
                     <div className="card-body">
-                        <div className="row row my-3 py-2 border d-flex aling-items-center">
-                            <div className="col col-9">
-                                <p className="fs-5 m-0 p-0 text-uppercase">
-                                    DISPONIBLE
-                                </p>
-                            </div>
-                            <div className="col col-3">
-                                <span className="ml-3 fs-5 col col-6">{item.stock}</span>
-                            </div>
-                        </div>
-                        <div className="row row my-3 py-2 border d-flex aling-items-center">
-                            <div className="col col-8">
-                                <p className="fs-5 m-0 p-0 text-uppercase">
-                                    PLATAFORMA
-                                </p>
-                            </div>
-                            <div className="col col-4">
-                                <span className="ml-3 fs-5 col col-6">
-                                    {/* <i className="bi bi-playstation mx-1"></i>
-                                    <i className="bi bi-xbox me-1"></i>
-                                    <i className="bi bi-pc-display me-1"></i> */}
-                                    {item.plataform}
-
-                                </span>
-                            </div>
-                        </div>
-                        <div className="row row my-3 py-2 border d-flex aling-items-center">
-                            <div className="col col-8">
-                                <p className="fs-5 m-0 p-0 text-uppercase">
-                                    Precio (USD)
-                                </p>
-                            </div>
-                            <div className="col col-4">
-                                <span className="ml-3 fs-5 col col-6 text-end">$ {item.price}</span>
-                            </div>
-                        </div>
-                        <Link to={`/game/${item.id}`} className="btn btn-dark w-100">Ver Detalle</Link>
+                        <ul className="list-group">
+                            <li className="list-group-item d-flex justify-content-between align-items-center">
+                                Disponibles
+                                <span className="badge bg-primary rounded-pill">{item.stock}</span>
+                            </li>
+                            <li className="list-group-item d-flex justify-content-between align-items-center">
+                                Plataformas
+                                <span className="fs-5">{array.map((e, index) => e === "PlayStation" ? <i key={index} className="bi bi-playstation mx-1"></i> : e === "XBOX" ? <i key={index} className="bi bi-xbox text-success mx-1"></i> : <i key={index} className="bi bi-pc-display text-info mx-1"></i>)}</span>
+                            </li>
+                            <li className="list-group-item d-flex justify-content-between align-items-center">
+                                Categoria
+                                <span className="badge bg-primary rounded-pill">{item.category}</span>
+                            </li>
+                            <li className="list-group-item d-flex justify-content-between align-items-center">
+                                Precio (ARS)
+                                <span className="badge bg-primary rounded-pill">$ {item.price}</span>
+                            </li>
+                        </ul>
+                        <Link to={`/game/${item.id}`} className="btn btn-dark w-100 my-3">Más Detalles</Link>
                     </div>
 
                 </div>

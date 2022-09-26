@@ -2,10 +2,12 @@ import { addDoc, getFirestore, collection } from 'firebase/firestore';
 import React, { useContext, useState } from 'react';
 import { CartContext } from '../../context/CartContext';
 import Swal from 'sweetalert2';
+import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
     const { items, clear } = useContext(CartContext);
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     const valorInicial = {
         buyer: {
@@ -42,12 +44,49 @@ const Checkout = () => {
         e.preventDefault();
         setLoading(true);
 
-        await addDoc(orderCollection, ord).then(({ id }) => {
-            Swal.fire(`Su orden de compra se ha generado correctamente [ID: ${id}].`);
-            setLoading(false);
-        }).then(() => {
-            clear();
-            setOrder({ ...valorInicial });
+        const swalButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success mx-1',
+                cancelButton: 'btn btn-danger mx-1'
+            },
+            buttonsStyling: false
+        })
+
+        swalButtons.fire({
+            title: '¿Confirmas que tus datos son correctos?',
+            html: `Nombre: ${order.buyer.apellido}, ${order.buyer.nombres} <br>Correo: ${order.buyer.email} <br>País: ${order.buyer.pais}<br>Ciudad: ${order.buyer.ciudad}<br>Código postal: ${order.buyer.cPostal}`,
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonText: 'Confirmar',
+            cancelButtonText: 'Cancelar',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                addDoc(orderCollection, ord).then(({ id }) => {
+                    swalButtons.fire({
+                        title: 'Compra realizada!',
+                        html: `Se ha generado tu orden de compra correctamente. <br><br> ID: ${id}`,
+                        icon: 'success'
+                    })
+
+                    setLoading(false);
+                })
+
+                clear();
+                setOrder({ ...valorInicial });
+                navigate("/");
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalButtons.fire(
+                    'Operacion cancelada!',
+                    'No se ha generado ninguna orden de compra',
+                    'error'
+                )
+
+                setLoading(false);
+            }
         })
     }
 
@@ -57,6 +96,14 @@ const Checkout = () => {
         useGrouping: true,
         maximumSignificantDigits: 2
     });
+
+    function SubmitButton() {
+        if (order.buyer.apellido && order.buyer.nombres && order.buyer.email && order.buyer.pais && order.buyer.ciudad && order.buyer.cPostal) {
+            return <input type="submit" className="btn btn-primary" value="Finalizar Compra" />
+        } else {
+            return <input type="submit" className="btn btn-primary" value="Finalizar Compra" disabled />
+        };
+    };
 
     return (
         <div className="container">
@@ -113,7 +160,7 @@ const Checkout = () => {
                                 </div>
 
                                 <div className="col-12 my-3">
-                                    <input type="submit" className="btn btn-primary" value="Finalizar Compra" />
+                                    <SubmitButton />
                                 </div>
                             </form>
                         </div>
