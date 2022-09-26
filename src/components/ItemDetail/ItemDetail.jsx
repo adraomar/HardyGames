@@ -21,7 +21,7 @@ const ItemDetail = ({ item }) => {
 
         swalButtons.fire({
             title: '¿Estás seguro?',
-            text: `Se van a agregar (${contador}) del juego ${item.name} al carrito`,
+            text: `Se van a agregar (${contador}) copias del juego ${item.name} al carrito`,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonText: 'Agregar',

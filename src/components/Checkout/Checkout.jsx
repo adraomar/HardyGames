@@ -52,7 +52,7 @@ const Checkout = () => {
             buttonsStyling: false
         })
 
-        swalButtons.fire({
+        await swalButtons.fire({
             title: '¿Confirmas que tus datos son correctos?',
             html: `Nombre: ${order.buyer.apellido}, ${order.buyer.nombres} <br>Correo: ${order.buyer.email} <br>País: ${order.buyer.pais}<br>Ciudad: ${order.buyer.ciudad}<br>Código postal: ${order.buyer.cPostal}`,
             icon: 'info',
@@ -71,11 +71,12 @@ const Checkout = () => {
                     })
 
                     setLoading(false);
+                }).then(() => {
+                    clear();
+                    setOrder({ ...valorInicial });
+                    navigate("/");
                 })
-
-                clear();
-                setOrder({ ...valorInicial });
-                navigate("/");
+                
             } else if (
                 result.dismiss === Swal.DismissReason.cancel
             ) {
