@@ -7,20 +7,21 @@ import Category from '../Category/Category';
 import Header from '../Header';
 import Footer from '../Footer';
 import Checkout from '../Checkout/Checkout';
+import AboutUs from '../AboutUs/AboutUs';
 
 const RoutesMap = () => {
     return (
         <BrowserRouter>
-            <Header/>
+            <Header />
             <Routes>
                 <Route path={`/`} element={<Main />} />
                 <Route path={`/game/:id`} element={<ItemDetailContainer />} />
-                <Route path={`/category/:name`} element={<Category/>} />
+                <Route path={`/category/:name`} element={<Category />} />
                 <Route path={`/cart`} element={<CartContainer />} />
-                <Route path={`/about`} element={<Main />} />
-                <Route path={`/checkout`} element={<Checkout/>} />
+                <Route path={`/nosotros`} element={<AboutUs />} />
+                <Route path={`/checkout`} element={<Checkout />} />
             </Routes>
-            <Footer/>
+            <Footer />
         </BrowserRouter>
     )
 }
