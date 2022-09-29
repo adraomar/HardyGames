@@ -1,13 +1,15 @@
-import { addDoc, getFirestore, collection } from 'firebase/firestore';
+import { addDoc, doc, getFirestore, collection, updateDoc } from 'firebase/firestore';
 import React, { useContext, useState } from 'react';
 import { CartContext } from '../../context/CartContext';
 import Swal from 'sweetalert2';
 import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
-    const { items, clear } = useContext(CartContext);
+    const { items, clear, getTotal } = useContext(CartContext);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const total = getTotal();
+    const db = getFirestore();
 
     const valorInicial = {
         buyer: {
@@ -18,7 +20,7 @@ const Checkout = () => {
             ciudad: "",
             cPostal: "",
         },
-        total: (items.reduce((pv, cv) => pv + (cv.price * cv.quantity), 0)) + (((items.reduce((pv, cv) => pv + (cv.price * cv.quantity), 0)) * 21) / 100),
+        total: (((total) + (total) * 21) / 100),
         cart: items
     }
 
@@ -36,8 +38,17 @@ const Checkout = () => {
         });
     }
 
+    const updateProducto = async (id, newStock) => {
+        const producto = doc(db, "productos", id);
+        
+        try {
+            await updateDoc(producto, {stock: newStock});
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     const guardarDatos = async (e) => {
-        const db = getFirestore();
         let ord = order;
         const orderCollection = collection(db, "orders");
 
@@ -62,7 +73,6 @@ const Checkout = () => {
             reverseButtons: true
         }).then((result) => {
             if (result.isConfirmed) {
-
                 addDoc(orderCollection, ord).then(({ id }) => {
                     swalButtons.fire({
                         title: 'Compra realizada!',
@@ -72,11 +82,14 @@ const Checkout = () => {
 
                     setLoading(false);
                 }).then(() => {
+                    items.map((item) => updateProducto(item.id, item.stock - item.quantity));
                     clear();
                     setOrder({ ...valorInicial });
                     navigate("/");
                 })
-                
+
+
+
             } else if (
                 result.dismiss === Swal.DismissReason.cancel
             ) {
@@ -183,17 +196,17 @@ const Checkout = () => {
                                     <div className="list-group">
                                         <div className="list-group-item d-flex justify-content-between align-items-center">
                                             IVA (21%)
-                                            <span><>{moneyFormat.format(((items.reduce((pv, cv) => pv + (cv.price * cv.quantity), 0)) * 21) / 100)}</></span>
+                                            <span><>{moneyFormat.format(((total) * 21) / 100)}</></span>
                                         </div>
                                         <div className="list-group-item d-flex justify-content-between align-items-center">
                                             Sub total
-                                            <span><>{moneyFormat.format(items.reduce((pv, cv) => pv + (cv.price * cv.quantity), 0))}</></span>
+                                            <span><>{moneyFormat.format(total)}</></span>
                                         </div>
                                     </div>
                                     <div className="list-group mt-2">
                                         <div className="list-group-item d-flex justify-content-between align-items-center">
                                             Total
-                                            <span><>{moneyFormat.format((items.reduce((pv, cv) => pv + (cv.price * cv.quantity), 0)) + (((items.reduce((pv, cv) => pv + (cv.price * cv.quantity), 0)) * 21) / 100))}</></span>
+                                            <span><>{moneyFormat.format((total) + (((total) * 21) / 100))}</></span>
 
                                         </div>
                                     </div>

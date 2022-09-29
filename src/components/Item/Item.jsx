@@ -30,7 +30,7 @@ const Item = ({ item, idx }) => {
                             </li>
                             <li className="list-group-item d-flex justify-content-between align-items-center">
                                 Categoria
-                                <span className="badge bg-primary rounded-pill">{item.category}</span>
+                                <span className="badge bg-primary rounded-pill text-uppercase">{item.category}</span>
                             </li>
                             <li className="list-group-item d-flex justify-content-between align-items-center">
                                 Precio (ARS)

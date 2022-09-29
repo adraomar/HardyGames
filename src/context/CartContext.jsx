@@ -26,12 +26,16 @@ export function CartProvider({ children }) {
         setItems([]);
     }
 
+    function getTotal() {
+        return items.reduce((pv, cv) => pv + (cv.price * cv.quantity), 0)
+    }
+
     function isInCart(itemID) {
         return items.find((element) => element.id === itemID);
     }
 
     return (
-        <CartContext.Provider value={{ addItem, removeItem, items, clear }}>
+        <CartContext.Provider value={{ addItem, removeItem, getTotal, items, clear }}>
             {children}
         </CartContext.Provider>
     )
