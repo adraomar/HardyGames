@@ -29,8 +29,8 @@ const AboutUs = () => {
                                     <p className="card-text text-center fw-bold mb-2">adra.omar2@gmail.com</p>
                                     <div className="d-flex justify-content-center align-items-center my-3">
                                         <div className="btn-group">
-                                        <a className="btn btn-sm fw-bold btn-outline-success mx-1" target="_blank" rel="noopener" href="https://www.linkedin.com/in/omar-alberto-adra-5164a7222/"><i className="bi bi-linkedin"></i> LinkedIn</a>
-                                        <a className="btn btn-sm fw-bold btn-outline-success mx-1" target="_blank" rel="noopener" href="https://github.com/adraomar"><i className="bi bi-github"></i> GitHub</a>
+                                        <a className="btn btn-sm fw-bold btn-outline-success mx-1" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/omar-alberto-adra-5164a7222/"><i className="bi bi-linkedin"></i> LinkedIn</a>
+                                        <a className="btn btn-sm fw-bold btn-outline-success mx-1" target="_blank" rel="noreferrer" href="https://github.com/adraomar"><i className="bi bi-github"></i> GitHub</a>
                                         </div>
                                     </div>
                                 </div>
