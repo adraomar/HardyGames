@@ -80,16 +80,13 @@ const Checkout = () => {
                         icon: 'success'
                     })
 
+                    items.map((item) => updateProducto(item.id, item.stock - item.quantity));
                     setLoading(false);
                 }).then(() => {
-                    items.map((item) => updateProducto(item.id, item.stock - item.quantity));
                     clear();
                     setOrder({ ...valorInicial });
                     navigate("/");
                 })
-
-
-
             } else if (
                 result.dismiss === Swal.DismissReason.cancel
             ) {
